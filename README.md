@@ -81,7 +81,7 @@ Please run the following steps in given order.
 -----------------------------------------------------------------------------------------
 
 <p align="center">
-  <img src="https://www.corda.net/wp-content/themes/corda/assets/images/crda-logo-big.svg" alt="Corda" width="500">
+  <img src="https://github.com/manrick653/cbdc/blob/master/wholesaleCBDC/designs/cbdcStatediagram.png" alt="cbdc" width="500">
 </p>
 
 
