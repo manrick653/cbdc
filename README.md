@@ -56,7 +56,7 @@ Please run the following steps in given order.
  4. Goto node : O=HSBC, L=London, C=GB
   Retail(HSBC) user deposited the CBDC back into the wholesale system(Abbey)
   
-`flow start TransferEGBPFlow "O=Abbey, L=London, C=GB", amount: 100`
+`flow start TransferEGBPFlow party: "O=Abbey, L=London, C=GB", amount: 100`
 
  5. GOTO Node :O=Abbey, L=London, C=GB 
     Wholesale transfers(Abbey) back the CBDC to the central bank(UK mint)
