@@ -61,7 +61,7 @@ Please run the following steps in given order.
  5. GOTO Node :O=Abbey, L=London, C=GB 
     Wholesale transfers(Abbey) back the CBDC to the central bank(UK mint)
     
-    `flow start TransferEGBPFlow "O=UK Mint, L=London, C=GB", amount: 100`
+    `flow start TransferEGBPFlow party: "O=UK Mint, L=London, C=GB", amount: 100`
     
  6. The central banks redeems the CBDC against the original fiat funds
  
