@@ -63,7 +63,7 @@ Please run the following steps in given order.
     
     `flow start TransferEGBPFlow party: "O=UK Mint, L=London, C=GB", amount: 100`
     
- 6. The central banks redeems the CBDC against the original fiat funds
+ 6. GOTO node:O=UK Mint, L=London, C=GB : The central banks redeems the CBDC against the original fiat funds
  
     `flow start RedeemEGbpFlow amount: 100`
     
