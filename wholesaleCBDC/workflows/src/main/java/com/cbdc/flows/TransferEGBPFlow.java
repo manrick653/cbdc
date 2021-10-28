@@ -1,4 +1,4 @@
-package net.corda.samples.tokenizedhouse.flows;
+package com.cbdc.flows;
 
 import co.paralleluniverse.fibers.Suspendable;
 import com.r3.corda.lib.tokens.contracts.types.TokenType;

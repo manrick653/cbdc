@@ -1,4 +1,4 @@
-package net.corda.samples.tokenizedhouse;
+package com.cbdc.cbdc;
 
 import com.google.common.collect.ImmutableList;
 import com.r3.corda.lib.tokens.contracts.types.TokenType;
@@ -8,9 +8,9 @@ import net.corda.core.identity.CordaX500Name;
 import net.corda.core.node.NetworkParameters;
 import net.corda.core.node.services.VaultService;
 import net.corda.core.transactions.SignedTransaction;
-import net.corda.samples.tokenizedhouse.flows.IssueEGBPFlow;
-import net.corda.samples.tokenizedhouse.flows.RedeemEGbpFlow;
-import net.corda.samples.tokenizedhouse.flows.TransferEGBPFlow;
+import com.cbdc.flows.IssueEGBPFlow;
+import com.cbdc.flows.RedeemEGbpFlow;
+import com.cbdc.flows.TransferEGBPFlow;
 import net.corda.testing.node.MockNetwork;
 import net.corda.testing.node.MockNetworkParameters;
 import net.corda.testing.node.StartedMockNode;

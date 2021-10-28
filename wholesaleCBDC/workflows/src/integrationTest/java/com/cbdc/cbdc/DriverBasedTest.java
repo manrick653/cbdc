@@ -1,4 +1,4 @@
-package net.corda.samples.tokenizedhouse;
+package com.cbdc.cbdc;
 
 import com.google.common.collect.ImmutableList;
 import net.corda.core.concurrent.CordaFuture;
