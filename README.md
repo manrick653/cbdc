@@ -1,5 +1,5 @@
 # CBDC(Central Bank Digital Currency)
-implementing cbdc using R3 corda token SDK
+Implementing cbdc using R3 corda token SDK
 
 (a) **wholesaleCBDC** :
     The wholesale CBDCs are suitable for financial institutions holding reserve deposits in a central bank. 
