@@ -21,7 +21,6 @@ import java.util.Collections;
 @InitiatingFlow
 @StartableByRPC
 public class RedeemEGbpFlow extends FlowLogic<SignedTransaction> {
-    CordaX500Name GBP_MINT = CordaX500Name.parse("O=UK Mint, L=London, C=GB");
 
     private final long amount ;
 
@@ -34,7 +33,7 @@ public class RedeemEGbpFlow extends FlowLogic<SignedTransaction> {
     @Suspendable
     public SignedTransaction call() throws FlowException {
         final TokenType usdTokenType = FiatCurrency.Companion.getInstance("GBP");
-        final Party usMint = getServiceHub().getNetworkMapCache().getPeerByLegalName(GBP_MINT);
+        final Party usMint = getServiceHub().getNetworkMapCache().getPeerByLegalName( UkMintConstants.GBP_MINT);
         if (usMint == null) throw new FlowException("No UK Mint found");
 
         // Describe how to find those GBP held by Me.

@@ -39,9 +39,9 @@ public class QueryCBDC {
 
 
        // Vault.Page<FungibleToken> tokenAmountResultsClassLess = a.getServices().getVaultService().queryBy(FungibleToken.class, SelectionUtilities.tokenAmountCriteria(testTokenType));
-        System.out.println("balance with you "+tokenType.getQuantity());
+        System.out.println("balance with you : your identity"+ getOurIdentity()+" is : "+tokenType.getQuantity());
 
-        return "balance with you "+tokenType.getQuantity();
+        return "balance with you : your identity"+ getOurIdentity()+" is : "+tokenType.getQuantity();
     }
 }
 

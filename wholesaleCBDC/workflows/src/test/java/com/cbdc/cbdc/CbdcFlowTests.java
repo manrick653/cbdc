@@ -16,6 +16,7 @@ import net.corda.testing.node.MockNetworkParameters;
 import net.corda.testing.node.StartedMockNode;
 import net.corda.testing.node.TestCordapp;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -96,7 +97,7 @@ public class CbdcFlowTests {
     }
 
     @Test
-    public void transferFromCommercialBankToRetailBank(){
+    public void integrationFlow(){
 
         IssueEGBPFlow issueGbpFlow =
                 new IssueEGBPFlow(centralBank.getInfo().getLegalIdentities().get(0),100);
@@ -134,6 +135,10 @@ public class CbdcFlowTests {
         Future<SignedTransaction> future6 = centralBank.startFlow(redeemEGbpFlow);
         network.runNetwork();
         printBalanceAfterEveryOpt("#####---Central Bank Redeem All CDBC ---####");
+        final TokenType gbpTokenType = new TokenType("GBP",2);
+        VaultService vaultService = centralBank.getServices().getVaultService();
+        Amount<TokenType> tokenType = QueryUtilities.tokenBalance(vaultService,gbpTokenType);
+        Assert.assertEquals("Central Bank has destroyed the token , so it should be zero",0,tokenType.getQuantity());
 
 
 

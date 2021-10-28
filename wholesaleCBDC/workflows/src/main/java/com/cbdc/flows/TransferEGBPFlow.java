@@ -25,7 +25,6 @@ public class TransferEGBPFlow extends FlowLogic<SignedTransaction> {
 
     private final Party party;
     private final long amount;
-    CordaX500Name GBP_MINT = CordaX500Name.parse("O=UK Mint, L=London, C=GB");
 
     public TransferEGBPFlow(Party party, long amount) {
         this.party = party;
@@ -36,23 +35,23 @@ public class TransferEGBPFlow extends FlowLogic<SignedTransaction> {
     @Suspendable
     public SignedTransaction call() throws FlowException {
         // Prepare what we are talking about.
-        final TokenType usdTokenType = FiatCurrency.Companion.getInstance("GBP");
-        final Party gbpMint = getServiceHub().getNetworkMapCache().getPeerByLegalName(GBP_MINT);
+        final TokenType gbpTokenType = FiatCurrency.Companion.getInstance("GBP");
+        final Party gbpMint = getServiceHub().getNetworkMapCache().getPeerByLegalName( UkMintConstants.GBP_MINT);
         if (gbpMint == null) throw new FlowException("No uk Mint found");
 
         // Who is going to own the output, and how much?
-        final Amount<TokenType> usdAmount = AmountUtilities.amount(amount, usdTokenType);
+        final Amount<TokenType> usdAmount = AmountUtilities.amount(amount, gbpTokenType);
         final PartyAndAmount<TokenType> bobsAmount = new PartyAndAmount<>(party, usdAmount);
 
         // Describe how to find those $ held by Me.
-        final QueryCriteria issuedByUSMint = QueryUtilities.tokenAmountWithIssuerCriteria(usdTokenType, gbpMint);
-        final QueryCriteria heldByMe = QueryUtilities.heldTokenAmountCriteria(usdTokenType, getOurIdentity());
+        final QueryCriteria issuedByUkMint = QueryUtilities.tokenAmountWithIssuerCriteria(gbpTokenType, gbpMint);
+        final QueryCriteria heldByMe = QueryUtilities.heldTokenAmountCriteria(gbpTokenType, getOurIdentity());
 
         // Do the move
         return subFlow(new MoveFungibleTokens(
                 Collections.singletonList(bobsAmount), // Output instances
                 Collections.emptyList(), // Observers
-                issuedByUSMint.and(heldByMe), // Criteria to find the inputs
+                issuedByUkMint.and(heldByMe), // Criteria to find the inputs
                 getOurIdentity())); // change holder
     }
 

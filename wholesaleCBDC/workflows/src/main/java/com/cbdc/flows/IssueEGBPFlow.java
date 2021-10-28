@@ -20,7 +20,6 @@ import java.util.Collections;
 @StartableByRPC
 @InitiatingFlow
 public class IssueEGBPFlow extends FlowLogic<SignedTransaction> {
-    CordaX500Name GBP_MINT = CordaX500Name.parse("O=UK Mint, L=London, C=GB");
     private final Party centralBank;
     private final long amount;
 
@@ -33,7 +32,7 @@ public class IssueEGBPFlow extends FlowLogic<SignedTransaction> {
     @Suspendable
     public SignedTransaction call() throws FlowException {
         final TokenType gbpTokenType = new TokenType("GBP",2);
-        if (!getOurIdentity().getName().equals(GBP_MINT)) {
+        if (!getOurIdentity().getName().equals(UkMintConstants.GBP_MINT)) {
             throw new FlowException("We are not the UK Mint");
         }
         final IssuedTokenType ukMintGbp = new IssuedTokenType(getOurIdentity(), gbpTokenType);
