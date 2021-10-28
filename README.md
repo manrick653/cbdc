@@ -78,6 +78,12 @@ Please run the following steps in given order.
         `flow start GetCBDCBalance`
 
     
+-----------------------------------------------------------------------------------------
+
+<p align="center">
+  <img src="https://www.corda.net/wp-content/themes/corda/assets/images/crda-logo-big.svg" alt="Corda" width="500">
+</p>
+
 
 
 
